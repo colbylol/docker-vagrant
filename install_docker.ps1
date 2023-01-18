@@ -49,8 +49,8 @@ function Add-Path {
 
 ## https://docs.docker.com/engine/install/binaries/#install-server-and-client-binaries-on-windows
 Write-Host "Downloading and installing Docker (server and client binaries)..."
-Start-BitsTransfer -Source "https://download.docker.com/win/static/stable/x86_64/docker-$DockerVer.zip" -Destination $Env:Download\docker-$DockerVer.zip
-Expand-Archive $Env:Download\docker-$DockerVer.zip -DestinationPath $Env:ProgramFiles
+Start-BitsTransfer -Source "https://download.docker.com/win/static/stable/x86_64/docker-$DockerVer.zip" -Destination $Env:tmp\docker-$DockerVer.zip
+Expand-Archive $Env:tmp\docker-$DockerVer.zip -DestinationPath $Env:ProgramFiles
 Add-Path $Env:ProgramFiles\Docker
 [Environment]::SetEnvironmentVariable("DOCKER_HOST", "tcp://localhost:2375", "User")
 
