@@ -4,7 +4,6 @@ options = {}
 
 Vagrant.configure("2") do |config|
     config.vm.box = "debian/bullseye64"
-    config.vm.define = "docker-vagrant"
     config.vm.hostname = "docker-vagrant"
     config.vm.provision "bootstrap", type: "shell", path: "vagrant/bootstrap.sh", privileged: true, name: "bootstrap VM", env:options
     config.vm.provision "portainer", type: "shell", path: "vagrant/portainer.sh", privileged: true, name: "install Portainer CE", env:options
